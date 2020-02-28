@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "simple_rest_api"
+version = "0.1.0"
+description = "Just a very simple API."
+readme = "README.md"
+authors = ["zuhsicat"]
+
+[tool.poetry.dependencies]
+python = "~3.6"
+
+json-rpc = "^1.10.8"
+Werkzeug = "^0.15.1"
