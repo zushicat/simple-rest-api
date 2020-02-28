@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "simple_rest_api"
 version = "0.1.0"
-description = "Just a very simple API."
+description = "Just a very simple REST API."
 readme = "README.md"
 authors = ["zuhsicat"]
 

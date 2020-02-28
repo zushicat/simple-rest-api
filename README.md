@@ -33,7 +33,7 @@ docker build -t simple_rest_api .
 docker run -p 8080:80 simple_rest_api
 ```
 
-Or if you like like to reload after changes while container is running:
+Or if you like to reload after changes while container is running:
 ```
 docker run --rm -it -p 8080:80 -v $(pwd):/app simple_rest_api
 ```
