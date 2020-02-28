@@ -1,22 +1,21 @@
 ### Description
 A very simple API using werkzeug and jsrpc
 - when running docker container, in Dockerfile
-CMD ["poetry", "run", "python", "-m", "api_cradle.api"]:
-- starts service in src/api/_main_.py
-- src/api/server.py: function "application" waits for jsrpc request
-- on request: dispatcher delegates to src/fancy_stuff/_my_application.py
-    - passing the attributes from "params" in request
-    - a file in /data is read, getting the attribute "name"
-    - both values are passed to do_something in _make_fancy_shit
-        - returns json
-    - returns returned json
-- returns API response
+CMD ["poetry", "run", "python", "-m", "simple_rest_api.api"]:
+  - starts service in src/api/_main_.py
+  - src/api/server.py: function "application" waits for jsrpc request
+  - on request: dispatcher delegates to src/fancy_stuff/_my_application.py
+      - passing the attributes from "params" in request
+      - a file in /data is read, getting the attribute "name"
+      - both values are passed to do_something in _make_fancy_shit
+          - returns json
+      - returns returned json
+  - returns API response
 
 No additional fancyness (such as logging, testing & stuff) implemented.
 
 ### Prerequisite
 - install latest version of docker
-- (maybe: docker --> preferences --> allowcate more memory)
 
 ### If you are using Visual Studio Code
 - (If you are using OSX, install with brew cask install visual-studio-code)
@@ -30,12 +29,12 @@ No additional fancyness (such as logging, testing & stuff) implemented.
 ### Start Docker Container
 Build and run docker container (with exposed port) named "api_cradle"
 ```
-docker build -t api_cradle .
-docker run -p 8080:80 api_cradle
+docker build -t simple_rest_api .
+docker run -p 8080:80 simple_rest_api
 ```
 
 ### request
-2 request methods implemented:
+2 example request methods implemented:
 
 1) mytestrequest
 with curl
