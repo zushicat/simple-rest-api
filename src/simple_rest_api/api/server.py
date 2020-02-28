@@ -7,7 +7,7 @@ from werkzeug.wrappers import Request, Response
 from werkzeug.exceptions import HTTPException
 
 from .exceptions import InternalError
-from api_cradle.fancy_stuff import give_result, test_request
+from simple_rest_api.fancy_stuff import give_result, test_request
 
 
 def http_exception(req: Request, e: HTTPException) -> Response:
@@ -33,7 +33,7 @@ def json_rpc_except(func: Callable) -> Callable:
 @Request.application
 def application(request):
     try:
-        dispatcher['cradle.fancyrequest'] = json_rpc_except(give_result)
+        dispatcher['myfancyendpoint.fancyrequest'] = json_rpc_except(give_result)
         dispatcher['mytestrequest'] = json_rpc_except(test_request)
         response = JSONRPCResponseManager.handle(request.data, dispatcher)
         return (Response(response.json, mimetype='application/json'))

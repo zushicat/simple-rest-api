@@ -33,6 +33,11 @@ docker build -t simple_rest_api .
 docker run -p 8080:80 simple_rest_api
 ```
 
+Or if you like like to reload after changes while container is running:
+```
+docker run --rm -it -p 8080:80 -v $(pwd):/app simple_rest_api
+```
+
 ### request
 2 example request methods implemented:
 
@@ -68,13 +73,13 @@ returns
 }
 ```
 
-2) cradle.fancyrequest
+2) myfancyendpoint.fancyrequest
 pass parameter "stuff" by http request
 with curl
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"jsonrpc":"2.0","id":12345,"method":"cradle.fancyrequest","params":{"stuff":"Foo Stuff"}}' \
+  --data '{"jsonrpc":"2.0","id":12345,"method":"myfancyendpoint.fancyrequest","params":{"stuff":"Foo Stuff"}}' \
   http://localhost:8080
 ```
 or with REST Client extension for Visual Studio (see below)
@@ -85,7 +90,7 @@ Content-Type: application/json
 {
     "jsonrpc": "2.0",
     "id": 12345,
-    "method": "cradle.fancyrequest",
+    "method": "myfancyendpoint.fancyrequest",
     "params": {"stuff": "Foo Stuff"}
 }
 ```
